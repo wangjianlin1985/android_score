@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="ClassInfo" table="ClassInfo">
+
+          <!-- 主键班级编号 -->
+          <id name="classNo" type="string" length="20">
+            <generator class="assigned"/>
+          </id>
+
+          <!-- 简单字符串属性: 班级名称 -->
+          <property
+            name="className"
+            column="className"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单日期型属性: 开办日期 -->
+          <property
+            name="bornDate"
+            column="bornDate"
+            	type="timestamp"
+            	length="10"
+          />
+
+          <!-- 简单字符串属性: 班主任 -->
+          <property
+            name="headerName"
+            column="headerName"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
