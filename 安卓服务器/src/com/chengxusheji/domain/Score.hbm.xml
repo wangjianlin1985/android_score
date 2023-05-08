@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Score" table="Score">
+
+          <!-- 主键成绩id -->
+          <id name="scoreId" column="scoreId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 学生 -->
+          <many-to-one name="studentObj"
+            column="studentObj"
+            class="Student"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 多对一属性: 课程 -->
+          <many-to-one name="courseObj"
+            column="courseObj"
+            class="Course"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单浮点型属性: 课程成绩 -->
+          <property
+            name="courseScore"
+            column="courseScore"
+            type="float"
+          />
+
+          <!-- 简单字符串属性: 学生评价 -->
+          <property
+            name="evaluate"
+            column="evaluate"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 添加时间 -->
+          <property
+            name="addTime"
+            column="addTime"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

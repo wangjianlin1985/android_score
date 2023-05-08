@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Kejian" table="Kejian">
+
+          <!-- 主键课件id -->
+          <id name="kejianId" column="kejianId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 简单字符串属性: 标题 -->
+          <property
+            name="title"
+            column="title"
+            type="string"
+            length="50"
+          />
+
+          <!-- 简单字符串属性: 描述 -->
+          <property
+            name="content"
+            column="content"
+            type="string"
+            length="500"
+          />
+
+          <!-- 简单图片属性: 课件文件 -->
+          <property
+            name="kejianFile"
+            column="kejianFile"
+            type="string"
+            length="50"
+          />
+
+          <!-- 多对一属性: 上传老师 -->
+          <many-to-one name="teacherObj"
+            column="teacherObj"
+            class="Teacher"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 上传时间 -->
+          <property
+            name="uploadTime"
+            column="uploadTime"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
